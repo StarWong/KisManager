@@ -1,0 +1,16 @@
+initialization
+  fClassFactory_AppService := TROClassFactory.Create('AppService', {$IFDEF FPC}@{$ENDIF}Create_AppService, TAppService_Invoker);
+  // RegisterForZeroConf(fClassFactory_AppService, '_AppService_rosdk._tcp.');
+finalization
+  UnRegisterClassFactory(fClassFactory_AppService);
+  fClassFactory_AppService := nil;
+end.
+
+
+initialization
+  fClassFactory_LogoService := TROClassFactory.Create('LogoService', {$IFDEF FPC}@{$ENDIF}Create_LogoService, TLogoService_Invoker);
+  // RegisterForZeroConf(fClassFactory_LogoService, '_LogoService_rosdk._tcp.');
+finalization
+  UnRegisterClassFactory(fClassFactory_LogoService);
+  fClassFactory_LogoService := nil;
+end.
